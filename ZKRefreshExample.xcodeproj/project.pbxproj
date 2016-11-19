@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5810CB8B1DE0A58700F255DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CB8A1DE0A58700F255DE /* main.m */; };
+		5810CB8E1DE0A58700F255DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CB8D1DE0A58700F255DE /* AppDelegate.m */; };
+		5810CB961DE0A58700F255DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5810CB951DE0A58700F255DE /* Assets.xcassets */; };
+		5810CB991DE0A58700F255DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5810CB971DE0A58700F255DE /* LaunchScreen.storyboard */; };
+		5810CBA41DE0A58800F255DE /* ZKRefreshExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBA31DE0A58800F255DE /* ZKRefreshExampleTests.m */; };
+		5810CBAF1DE0A58800F255DE /* ZKRefreshExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBAE1DE0A58800F255DE /* ZKRefreshExampleUITests.m */; };
+		5810CBCF1DE0A62A00F255DE /* ZKRefreshBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBBF1DE0A62A00F255DE /* ZKRefreshBase.m */; };
+		5810CBD01DE0A62A00F255DE /* ZKRefreshBaseFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBC11DE0A62A00F255DE /* ZKRefreshBaseFooter.m */; };
+		5810CBD11DE0A62A00F255DE /* ZKRefreshBaseHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBC31DE0A62A00F255DE /* ZKRefreshBaseHeader.m */; };
+		5810CBD21DE0A62A00F255DE /* UIScrollView+ZKRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBC61DE0A62A00F255DE /* UIScrollView+ZKRefresh.m */; };
+		5810CBD31DE0A62A00F255DE /* UIScrollView+ZKRefreshPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBC81DE0A62A00F255DE /* UIScrollView+ZKRefreshPrivate.m */; };
+		5810CBD41DE0A62A00F255DE /* UIView+ZKRefreshPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBCA1DE0A62A00F255DE /* UIView+ZKRefreshPrivate.m */; };
+		5810CBD51DE0A62A00F255DE /* ZKRefreshStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBCD1DE0A62A00F255DE /* ZKRefreshStateFooter.m */; };
+		5810CBDB1DE0A63A00F255DE /* MJExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBD81DE0A63A00F255DE /* MJExample.m */; };
+		5810CBDC1DE0A63A00F255DE /* MJExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBDA1DE0A63A00F255DE /* MJExampleViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5810CBA01DE0A58700F255DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5810CB7E1DE0A58700F255DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5810CB851DE0A58700F255DE;
+			remoteInfo = ZKRefreshExample;
+		};
+		5810CBAB1DE0A58800F255DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5810CB7E1DE0A58700F255DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5810CB851DE0A58700F255DE;
+			remoteInfo = ZKRefreshExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5810CB861DE0A58700F255DE /* ZKRefreshExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKRefreshExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5810CB8A1DE0A58700F255DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5810CB8C1DE0A58700F255DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5810CB8D1DE0A58700F255DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5810CB951DE0A58700F255DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5810CB981DE0A58700F255DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5810CB9A1DE0A58700F255DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5810CB9F1DE0A58700F255DE /* ZKRefreshExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZKRefreshExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5810CBA31DE0A58800F255DE /* ZKRefreshExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshExampleTests.m; sourceTree = "<group>"; };
+		5810CBA51DE0A58800F255DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5810CBAA1DE0A58800F255DE /* ZKRefreshExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZKRefreshExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5810CBAE1DE0A58800F255DE /* ZKRefreshExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshExampleUITests.m; sourceTree = "<group>"; };
+		5810CBB01DE0A58800F255DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5810CBBE1DE0A62A00F255DE /* ZKRefreshBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRefreshBase.h; sourceTree = "<group>"; };
+		5810CBBF1DE0A62A00F255DE /* ZKRefreshBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshBase.m; sourceTree = "<group>"; };
+		5810CBC01DE0A62A00F255DE /* ZKRefreshBaseFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRefreshBaseFooter.h; sourceTree = "<group>"; };
+		5810CBC11DE0A62A00F255DE /* ZKRefreshBaseFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshBaseFooter.m; sourceTree = "<group>"; };
+		5810CBC21DE0A62A00F255DE /* ZKRefreshBaseHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRefreshBaseHeader.h; sourceTree = "<group>"; };
+		5810CBC31DE0A62A00F255DE /* ZKRefreshBaseHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshBaseHeader.m; sourceTree = "<group>"; };
+		5810CBC51DE0A62A00F255DE /* UIScrollView+ZKRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ZKRefresh.h"; sourceTree = "<group>"; };
+		5810CBC61DE0A62A00F255DE /* UIScrollView+ZKRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ZKRefresh.m"; sourceTree = "<group>"; };
+		5810CBC71DE0A62A00F255DE /* UIScrollView+ZKRefreshPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ZKRefreshPrivate.h"; sourceTree = "<group>"; };
+		5810CBC81DE0A62A00F255DE /* UIScrollView+ZKRefreshPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ZKRefreshPrivate.m"; sourceTree = "<group>"; };
+		5810CBC91DE0A62A00F255DE /* UIView+ZKRefreshPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZKRefreshPrivate.h"; sourceTree = "<group>"; };
+		5810CBCA1DE0A62A00F255DE /* UIView+ZKRefreshPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZKRefreshPrivate.m"; sourceTree = "<group>"; };
+		5810CBCC1DE0A62A00F255DE /* ZKRefreshStateFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRefreshStateFooter.h; sourceTree = "<group>"; };
+		5810CBCD1DE0A62A00F255DE /* ZKRefreshStateFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshStateFooter.m; sourceTree = "<group>"; };
+		5810CBCE1DE0A62A00F255DE /* ZKRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRefresh.h; sourceTree = "<group>"; };
+		5810CBD71DE0A63A00F255DE /* MJExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExample.h; sourceTree = "<group>"; };
+		5810CBD81DE0A63A00F255DE /* MJExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExample.m; sourceTree = "<group>"; };
+		5810CBD91DE0A63A00F255DE /* MJExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExampleViewController.h; sourceTree = "<group>"; };
+		5810CBDA1DE0A63A00F255DE /* MJExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExampleViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5810CB831DE0A58700F255DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5810CB9C1DE0A58700F255DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5810CBA71DE0A58800F255DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5810CB7D1DE0A58700F255DE = {
+			isa = PBXGroup;
+			children = (
+				5810CBBC1DE0A62A00F255DE /* ZKRefresh */,
+				5810CB881DE0A58700F255DE /* ZKRefreshExample */,
+				5810CBA21DE0A58800F255DE /* ZKRefreshExampleTests */,
+				5810CBAD1DE0A58800F255DE /* ZKRefreshExampleUITests */,
+				5810CB871DE0A58700F255DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5810CB871DE0A58700F255DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5810CB861DE0A58700F255DE /* ZKRefreshExample.app */,
+				5810CB9F1DE0A58700F255DE /* ZKRefreshExampleTests.xctest */,
+				5810CBAA1DE0A58800F255DE /* ZKRefreshExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5810CB881DE0A58700F255DE /* ZKRefreshExample */ = {
+			isa = PBXGroup;
+			children = (
+				5810CBD61DE0A63A00F255DE /* Classes */,
+				5810CB8C1DE0A58700F255DE /* AppDelegate.h */,
+				5810CB8D1DE0A58700F255DE /* AppDelegate.m */,
+				5810CB951DE0A58700F255DE /* Assets.xcassets */,
+				5810CB971DE0A58700F255DE /* LaunchScreen.storyboard */,
+				5810CB9A1DE0A58700F255DE /* Info.plist */,
+				5810CB891DE0A58700F255DE /* Supporting Files */,
+			);
+			path = ZKRefreshExample;
+			sourceTree = "<group>";
+		};
+		5810CB891DE0A58700F255DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5810CB8A1DE0A58700F255DE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5810CBA21DE0A58800F255DE /* ZKRefreshExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				5810CBA31DE0A58800F255DE /* ZKRefreshExampleTests.m */,
+				5810CBA51DE0A58800F255DE /* Info.plist */,
+			);
+			path = ZKRefreshExampleTests;
+			sourceTree = "<group>";
+		};
+		5810CBAD1DE0A58800F255DE /* ZKRefreshExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5810CBAE1DE0A58800F255DE /* ZKRefreshExampleUITests.m */,
+				5810CBB01DE0A58800F255DE /* Info.plist */,
+			);
+			path = ZKRefreshExampleUITests;
+			sourceTree = "<group>";
+		};
+		5810CBBC1DE0A62A00F255DE /* ZKRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				5810CBBD1DE0A62A00F255DE /* Base */,
+				5810CBC41DE0A62A00F255DE /* Category */,
+				5810CBCB1DE0A62A00F255DE /* Custom */,
+				5810CBCE1DE0A62A00F255DE /* ZKRefresh.h */,
+			);
+			path = ZKRefresh;
+			sourceTree = "<group>";
+		};
+		5810CBBD1DE0A62A00F255DE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5810CBBE1DE0A62A00F255DE /* ZKRefreshBase.h */,
+				5810CBBF1DE0A62A00F255DE /* ZKRefreshBase.m */,
+				5810CBC01DE0A62A00F255DE /* ZKRefreshBaseFooter.h */,
+				5810CBC11DE0A62A00F255DE /* ZKRefreshBaseFooter.m */,
+				5810CBC21DE0A62A00F255DE /* ZKRefreshBaseHeader.h */,
+				5810CBC31DE0A62A00F255DE /* ZKRefreshBaseHeader.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		5810CBC41DE0A62A00F255DE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				5810CBC51DE0A62A00F255DE /* UIScrollView+ZKRefresh.h */,
+				5810CBC61DE0A62A00F255DE /* UIScrollView+ZKRefresh.m */,
+				5810CBC71DE0A62A00F255DE /* UIScrollView+ZKRefreshPrivate.h */,
+				5810CBC81DE0A62A00F255DE /* UIScrollView+ZKRefreshPrivate.m */,
+				5810CBC91DE0A62A00F255DE /* UIView+ZKRefreshPrivate.h */,
+				5810CBCA1DE0A62A00F255DE /* UIView+ZKRefreshPrivate.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		5810CBCB1DE0A62A00F255DE /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				5810CBCC1DE0A62A00F255DE /* ZKRefreshStateFooter.h */,
+				5810CBCD1DE0A62A00F255DE /* ZKRefreshStateFooter.m */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		5810CBD61DE0A63A00F255DE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5810CBD71DE0A63A00F255DE /* MJExample.h */,
+				5810CBD81DE0A63A00F255DE /* MJExample.m */,
+				5810CBD91DE0A63A00F255DE /* MJExampleViewController.h */,
+				5810CBDA1DE0A63A00F255DE /* MJExampleViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5810CB851DE0A58700F255DE /* ZKRefreshExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5810CBB31DE0A58800F255DE /* Build configuration list for PBXNativeTarget "ZKRefreshExample" */;
+			buildPhases = (
+				5810CB821DE0A58700F255DE /* Sources */,
+				5810CB831DE0A58700F255DE /* Frameworks */,
+				5810CB841DE0A58700F255DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZKRefreshExample;
+			productName = ZKRefreshExample;
+			productReference = 5810CB861DE0A58700F255DE /* ZKRefreshExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5810CB9E1DE0A58700F255DE /* ZKRefreshExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5810CBB61DE0A58800F255DE /* Build configuration list for PBXNativeTarget "ZKRefreshExampleTests" */;
+			buildPhases = (
+				5810CB9B1DE0A58700F255DE /* Sources */,
+				5810CB9C1DE0A58700F255DE /* Frameworks */,
+				5810CB9D1DE0A58700F255DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5810CBA11DE0A58700F255DE /* PBXTargetDependency */,
+			);
+			name = ZKRefreshExampleTests;
+			productName = ZKRefreshExampleTests;
+			productReference = 5810CB9F1DE0A58700F255DE /* ZKRefreshExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5810CBA91DE0A58800F255DE /* ZKRefreshExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5810CBB91DE0A58800F255DE /* Build configuration list for PBXNativeTarget "ZKRefreshExampleUITests" */;
+			buildPhases = (
+				5810CBA61DE0A58800F255DE /* Sources */,
+				5810CBA71DE0A58800F255DE /* Frameworks */,
+				5810CBA81DE0A58800F255DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5810CBAC1DE0A58800F255DE /* PBXTargetDependency */,
+			);
+			name = ZKRefreshExampleUITests;
+			productName = ZKRefreshExampleUITests;
+			productReference = 5810CBAA1DE0A58800F255DE /* ZKRefreshExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5810CB7E1DE0A58700F255DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = doggy;
+				TargetAttributes = {
+					5810CB851DE0A58700F255DE = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					5810CB9E1DE0A58700F255DE = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5810CB851DE0A58700F255DE;
+					};
+					5810CBA91DE0A58800F255DE = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5810CB851DE0A58700F255DE;
+					};
+				};
+			};
+			buildConfigurationList = 5810CB811DE0A58700F255DE /* Build configuration list for PBXProject "ZKRefreshExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5810CB7D1DE0A58700F255DE;
+			productRefGroup = 5810CB871DE0A58700F255DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5810CB851DE0A58700F255DE /* ZKRefreshExample */,
+				5810CB9E1DE0A58700F255DE /* ZKRefreshExampleTests */,
+				5810CBA91DE0A58800F255DE /* ZKRefreshExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5810CB841DE0A58700F255DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5810CB991DE0A58700F255DE /* LaunchScreen.storyboard in Resources */,
+				5810CB961DE0A58700F255DE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5810CB9D1DE0A58700F255DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5810CBA81DE0A58800F255DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5810CB821DE0A58700F255DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5810CBD21DE0A62A00F255DE /* UIScrollView+ZKRefresh.m in Sources */,
+				5810CBD11DE0A62A00F255DE /* ZKRefreshBaseHeader.m in Sources */,
+				5810CB8E1DE0A58700F255DE /* AppDelegate.m in Sources */,
+				5810CB8B1DE0A58700F255DE /* main.m in Sources */,
+				5810CBD31DE0A62A00F255DE /* UIScrollView+ZKRefreshPrivate.m in Sources */,
+				5810CBD01DE0A62A00F255DE /* ZKRefreshBaseFooter.m in Sources */,
+				5810CBD51DE0A62A00F255DE /* ZKRefreshStateFooter.m in Sources */,
+				5810CBCF1DE0A62A00F255DE /* ZKRefreshBase.m in Sources */,
+				5810CBD41DE0A62A00F255DE /* UIView+ZKRefreshPrivate.m in Sources */,
+				5810CBDC1DE0A63A00F255DE /* MJExampleViewController.m in Sources */,
+				5810CBDB1DE0A63A00F255DE /* MJExample.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5810CB9B1DE0A58700F255DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5810CBA41DE0A58800F255DE /* ZKRefreshExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5810CBA61DE0A58800F255DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5810CBAF1DE0A58800F255DE /* ZKRefreshExampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5810CBA11DE0A58700F255DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5810CB851DE0A58700F255DE /* ZKRefreshExample */;
+			targetProxy = 5810CBA01DE0A58700F255DE /* PBXContainerItemProxy */;
+		};
+		5810CBAC1DE0A58800F255DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5810CB851DE0A58700F255DE /* ZKRefreshExample */;
+			targetProxy = 5810CBAB1DE0A58800F255DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5810CB971DE0A58700F255DE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5810CB981DE0A58700F255DE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5810CBB11DE0A58800F255DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5810CBB21DE0A58800F255DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5810CBB41DE0A58800F255DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZKRefreshExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.doggy.ZKRefreshExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5810CBB51DE0A58800F255DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZKRefreshExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.doggy.ZKRefreshExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5810CBB71DE0A58800F255DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ZKRefreshExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.doggy.ZKRefreshExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZKRefreshExample.app/ZKRefreshExample";
+			};
+			name = Debug;
+		};
+		5810CBB81DE0A58800F255DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ZKRefreshExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.doggy.ZKRefreshExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZKRefreshExample.app/ZKRefreshExample";
+			};
+			name = Release;
+		};
+		5810CBBA1DE0A58800F255DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ZKRefreshExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.doggy.ZKRefreshExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ZKRefreshExample;
+			};
+			name = Debug;
+		};
+		5810CBBB1DE0A58800F255DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ZKRefreshExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.doggy.ZKRefreshExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ZKRefreshExample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5810CB811DE0A58700F255DE /* Build configuration list for PBXProject "ZKRefreshExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5810CBB11DE0A58800F255DE /* Debug */,
+				5810CBB21DE0A58800F255DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5810CBB31DE0A58800F255DE /* Build configuration list for PBXNativeTarget "ZKRefreshExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5810CBB41DE0A58800F255DE /* Debug */,
+				5810CBB51DE0A58800F255DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5810CBB61DE0A58800F255DE /* Build configuration list for PBXNativeTarget "ZKRefreshExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5810CBB71DE0A58800F255DE /* Debug */,
+				5810CBB81DE0A58800F255DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5810CBB91DE0A58800F255DE /* Build configuration list for PBXNativeTarget "ZKRefreshExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5810CBBA1DE0A58800F255DE /* Debug */,
+				5810CBBB1DE0A58800F255DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5810CB7E1DE0A58700F255DE /* Project object */;
+}
