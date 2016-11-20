@@ -111,10 +111,18 @@ const CGFloat MJRefreshFooterHeight = 44.0;
     if (ZKRefreshStateIdle == self.state) {
         BOOL beginRefreshing = NO;
         
-        // ContentHeight less than one page screen
+        // contentHeight less than one page/screen
         if (self.scrollView.zk_insetTop + self.scrollView.zk_contentHeight <= self.scrollView.zk_height) {
-            // Don't trigger this footer refresh while zk_header is refreshing already
-            beginRefreshing = ! self.scrollView.zk_header.isRefreshing;
+            // Scenario 1: FooterRefresh is not allowed while zk_header is showing
+            
+            // offsetY value to show zk_header
+            CGFloat happenOffsetY = - self.scrollView.zk_insetTop;
+            
+            // This zk_header is not showing
+            if (happenOffsetY < self.scrollView.zk_offsetY) {
+                // Scenario 2: FooterRefresh is not allowed during an existing zk_header refreshing
+                beginRefreshing = ! self.scrollView.zk_header.isRefreshing;
+            }
         } else {
             CGFloat actualContentHeight = self.scrollView.zk_contentHeight + self.scrollView.zk_insetBottom - self.zk_height;
             CGFloat triggerOffsetY = self.scrollView.zk_offsetY + self.scrollView.zk_height;
