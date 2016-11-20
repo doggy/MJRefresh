@@ -15,20 +15,12 @@ const CGFloat MJRefreshFastAnimationDuration = 0.25;
 const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 
 @interface ZKRefreshBaseHeader()
-@property (assign, nonatomic) CGFloat insetTDelta;
 
-// @ Property inherted from ZKRefreshBase
-@property (assign, nonatomic, readwrite) UIEdgeInsets scrollViewOriginalInset;
+// original insetTop of scrollView
+@property (assign, nonatomic) CGFloat originalInsetTop;
 @end
 
 @implementation ZKRefreshBaseHeader
-
-// @ Property inherted from ZKRefreshBase
-@synthesize scrollViewOriginalInset = __scrollViewOriginalInset;
-- (void)setScrollViewOriginalInset:(UIEdgeInsets)scrollViewOriginalInset
-{
-    __scrollViewOriginalInset = scrollViewOriginalInset;
-}
 
 #pragma mark - NS_DESIGNATED_INITIALIZER
 + (instancetype)headerWithRefreshingBlock:(ZKRefreshBaseRefreshingBlock)refreshingBlock
@@ -69,8 +61,8 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
     
     // Must be added to UIScrollView
     if ([newSuperview isKindOfClass:UIScrollView.class]) {
-        // Save original contentInset
-        self.scrollViewOriginalInset = self.scrollView.contentInset;
+        // Save original contentInsetTop
+        self.originalInsetTop = self.scrollView.contentInset.top;
         
         [self addObservers];
     }
@@ -104,26 +96,24 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 {
     if (   self.state != ZKRefreshStateRefreshing
         && self.state != ZKRefreshStateWillIdle ) {
-        // Mind to updating contentInset
-        self.scrollViewOriginalInset = self.scrollView.contentInset;
+        // Mind to updating contentInsetTop
+        self.originalInsetTop = self.scrollView.contentInset.top;
     }
     
     CGFloat contentOffset = self.scrollView.zk_offsetY;
     // offsetY value to show this zk_header
-    CGFloat happenOffsetY = - self.scrollViewOriginalInset.top;
-    
-    // This zk_header is not showing
-    if (contentOffset > happenOffsetY) return;
+    CGFloat happenOffsetY = - self.originalInsetTop;
     
     // Refreshing In Progress
     if (self.state == ZKRefreshStateRefreshing) {
         // Shrink contentInsetTop for grouped style UITableView's sectionheader
-        CGFloat insetT = MAX(- contentOffset, self.scrollViewOriginalInset.top);
-        insetT = MIN(insetT, self.zk_height + self.scrollViewOriginalInset.top);
+        CGFloat insetT = MAX(- contentOffset, self.originalInsetTop);
+        insetT = MIN(insetT, self.zk_height + self.originalInsetTop);
         self.scrollView.zk_insetTop = insetT;
-        // ... and keep the shrunk value
-        self.insetTDelta = self.scrollViewOriginalInset.top - insetT;
     } else {
+        // This zk_header is not showing
+        if (contentOffset > happenOffsetY) return;
+        
         // Calculate pulling percent, based on this zk_header's height
         CGFloat pullingPercent = (happenOffsetY - contentOffset) / self.zk_height;
         
@@ -168,10 +158,10 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
         // Start Refreshing
         dispatch_main_async_safe( ^{
             [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
-                CGFloat top = self.scrollViewOriginalInset.top + self.zk_height;
+                CGFloat top = self.zk_height + self.originalInsetTop;
                 // contentInsetTop should be increased in order to keeping this zk_header in scrollView
                 self.scrollView.zk_insetTop = top;
-                // 设置滚动位置
+                // Adjust contentOffsetY
                 [self.scrollView setContentOffset:CGPointMake(0, -top) animated:NO];
             } completion:^(BOOL finished) {
                 if (self.refreshingBlock) {
@@ -187,7 +177,7 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
                     // Reset contentInsetTop
-                    self.scrollView.zk_insetTop += self.insetTDelta;
+                    self.scrollView.zk_insetTop = self.originalInsetTop;
                 } completion:^(BOOL finished) {
                     self.state = ZKRefreshStateIdle;
                     

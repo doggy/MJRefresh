@@ -23,13 +23,9 @@ typedef NS_ENUM(NSInteger, ZKRefreshState) {
 
 @interface ZKRefreshBase : UIView
 {
-    // initial inset of scrollView
-    UIEdgeInsets _scrollViewOriginalInset;
-    
     // parent view
     __weak UIScrollView *_scrollView;
 }
-@property (assign, nonatomic, readonly) UIEdgeInsets scrollViewOriginalInset;
 @property (weak, nonatomic, readonly) __kindof UIScrollView *scrollView;
 
 // main status

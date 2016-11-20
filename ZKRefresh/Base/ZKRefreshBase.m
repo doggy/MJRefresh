@@ -74,7 +74,6 @@ NSString *const ZKRefreshKeyPathContentSize = @"contentSize";
         // Displaying
         self.state = ZKRefreshStateRefreshing;
     } else {
-        // Property scrollViewOriginalInset not set
         // waiting for willMoveToSuperview:
         if (self.state != ZKRefreshStateRefreshing) {
             self.state = ZKRefreshStateWillRefresh;\

@@ -165,10 +165,10 @@
 		5810CBBC1DE0A62A00F255DE /* ZKRefresh */ = {
 			isa = PBXGroup;
 			children = (
+				5810CBCE1DE0A62A00F255DE /* ZKRefresh.h */,
 				5810CBBD1DE0A62A00F255DE /* Base */,
 				5810CBC41DE0A62A00F255DE /* Category */,
 				5810CBCB1DE0A62A00F255DE /* Custom */,
-				5810CBCE1DE0A62A00F255DE /* ZKRefresh.h */,
 			);
 			path = ZKRefresh;
 			sourceTree = "<group>";
@@ -178,10 +178,10 @@
 			children = (
 				5810CBBE1DE0A62A00F255DE /* ZKRefreshBase.h */,
 				5810CBBF1DE0A62A00F255DE /* ZKRefreshBase.m */,
-				5810CBC01DE0A62A00F255DE /* ZKRefreshBaseFooter.h */,
-				5810CBC11DE0A62A00F255DE /* ZKRefreshBaseFooter.m */,
 				5810CBC21DE0A62A00F255DE /* ZKRefreshBaseHeader.h */,
 				5810CBC31DE0A62A00F255DE /* ZKRefreshBaseHeader.m */,
+				5810CBC01DE0A62A00F255DE /* ZKRefreshBaseFooter.h */,
+				5810CBC11DE0A62A00F255DE /* ZKRefreshBaseFooter.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";

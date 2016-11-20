@@ -73,6 +73,7 @@ static NSString *const MJExample30 = @"UIWebView";
         });
     }];
     
+    tableView.zk_header.backgroundColor = UIColor.yellowColor;
     tableView.zk_header.ignoredScrollViewContentInsetTop = 30;
     tableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
     
