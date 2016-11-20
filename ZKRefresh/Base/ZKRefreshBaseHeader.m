@@ -59,18 +59,15 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
     
     [self removeObservers];
     
-    __kindof UIScrollView * oldSuperview = (__kindof UIScrollView *)self.superview;
-    if ([oldSuperview isKindOfClass:UIScrollView.class]) {
-        // Reset superView's contentInsetTop after removing from it
-        oldSuperview.zk_insetTop = self.originalInsetTop;
-    }
-    
     // Must be added to UIScrollView
     if ([newSuperview isKindOfClass:UIScrollView.class]) {
         // Save original contentInsetTop
         self.originalInsetTop = self.scrollView.contentInset.top;
         
         [self addObservers];
+    } else {
+        // Reset superView's contentInsetTop after removing from it
+        self.scrollView.zk_insetTop = self.originalInsetTop;
     }
 }
 

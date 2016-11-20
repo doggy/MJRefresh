@@ -48,8 +48,8 @@ const CGFloat MJRefreshFooterHeight = 44.0;
     
     // Must be added to UIScrollView
     if ([newSuperview isKindOfClass:UIScrollView.class]) {
+        // Extend contentInsetBottom for adding this footer
         if (self.hidden == NO) {
-            // Shrink contentInsetBottom for adding this footer
             self.scrollView.zk_insetBottom += self.zk_height;
         }
         
@@ -58,8 +58,8 @@ const CGFloat MJRefreshFooterHeight = 44.0;
         
         [self addObservers];
     } else {
+        // Shrink contentInsetBottom for removing this footer
         if (self.hidden == NO) {
-            // Shrink contentInsetBottom for removing this footer
             self.scrollView.zk_insetBottom -= self.zk_height;
         }
     }
