@@ -26,8 +26,8 @@ NSString *const ZKRefreshKeyPathContentSize = @"contentSize";
     if (self = [super initWithFrame:frame]) {
         [self prepare];
         
-        // default value
-        _state = ZKRefreshStateIdle;
+        // default value, Caution/Overrides
+        self.state = ZKRefreshStateIdle;
     }
     return self;
 }

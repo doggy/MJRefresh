@@ -104,8 +104,6 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
     }
     
     CGFloat contentOffset = self.scrollView.zk_offsetY;
-    // offsetY value to show this zk_header
-    CGFloat happenOffsetY = - self.originalInsetTop;
     
     // Refreshing In Progress
     if (self.state == ZKRefreshStateRefreshing) {
@@ -114,8 +112,11 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
         insetT = MIN(insetT, self.zk_height + self.originalInsetTop);
         self.scrollView.zk_insetTop = insetT;
     } else {
+        // offsetY value to show this zk_header
+        CGFloat happenOffsetY = - self.originalInsetTop;
+        
         // This zk_header is not showing
-        if (contentOffset > happenOffsetY) return;
+        if (happenOffsetY < contentOffset) return;
         
         // Calculate pulling percent, based on this zk_header's height
         CGFloat pullingPercent = (happenOffsetY - contentOffset) / self.zk_height;

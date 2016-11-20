@@ -107,7 +107,6 @@
 {
     if (title) {
         self.stateTitles[@(state)] = title;
-        self.stateLabel.text = self.stateTitles[@(self.state)];
     } else {
         [self.stateTitles removeObjectForKey:@(state)];
     }

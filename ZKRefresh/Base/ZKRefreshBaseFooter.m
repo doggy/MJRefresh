@@ -124,7 +124,7 @@ const CGFloat MJRefreshFooterHeight = 44.0;
             }
         }
         if (beginRefreshing) {
-            // Just an improvements
+            // Just a performance improvement
             CGPoint old = [change[@"old"] CGPointValue];
             CGPoint new = [change[@"new"] CGPointValue];
             if (new.y <= old.y) return;

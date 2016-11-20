@@ -81,7 +81,7 @@ static NSString *const MJExample30 = @"UIWebView";
 //    tableView.zk_heighteader.automaticallyChangeAlpha = YES;
     
     // 上拉刷新
-    tableView.zk_footer = [ZKRefreshBaseFooter footerWithRefreshingBlock:^{
+    tableView.zk_footer = [ZKRefreshStateFooter footerWithRefreshingBlock:^{
         NSLog(@"---- startRefreshing");
         // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -90,6 +90,7 @@ static NSString *const MJExample30 = @"UIWebView";
             NSLog(@"---- endRefreshing");
         });
     }];
+    tableView.zk_footer.backgroundColor = UIColor.lightGrayColor;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
