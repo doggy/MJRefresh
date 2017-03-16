@@ -92,7 +92,8 @@ NSString *const ZKRefreshKeyPathContentSize = @"contentSize";
 {
     return (   self.state == ZKRefreshStateRefreshing
             || self.state == ZKRefreshStateWillRefresh
-            || self.state == ZKRefreshStateWillIdle
+            // just a quick fix, for preventing state error bug when calling `endRefreshing` twice quickly
+//            || self.state == ZKRefreshStateWillIdle
             );
 }
 
