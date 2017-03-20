@@ -2,8 +2,8 @@
 //  ZKRefreshBaseFooter.m
 //  ZKRefresh
 //
-//  Created by doggy on 11/13/16.
-//  Copyright © 2016 doggy. All rights reserved.
+//  Created by doug on 11/13/16.
+//  Copyright © 2016 doug. All rights reserved.
 //
 
 #import "ZKRefreshBaseHeader.h"
