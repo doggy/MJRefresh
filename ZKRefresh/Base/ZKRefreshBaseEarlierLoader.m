@@ -119,16 +119,11 @@ static const CGFloat MJRefreshHeaderHeight = 44.0;
                                                  - self.zk_height
                                                  + self.triggerAutomaticallyRefreshPercent * self.scrollView.zk_height);
         CGFloat triggerOffsetY = self.scrollView.zk_offsetY;
-        
-        NSLog(@"doug 2 %f" , triggerOffsetY);
-        
         if (triggerOffsetY < triggerDistanceToContentTop) {
             // Just a performance improvement
             CGPoint old = [change[@"old"] CGPointValue];
             CGPoint new = [change[@"new"] CGPointValue];
             if (old.y <= new.y) return;
-            
-            NSLog(@"doug beginRefreshing");
             
             // Rolling out !!
             [self beginRefreshing];
