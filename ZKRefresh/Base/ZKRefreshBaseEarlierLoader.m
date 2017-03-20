@@ -1,29 +1,28 @@
 //
-//  ZKRefreshBaseFooter.m
+//  ZKRefreshBaseEarlierLoader.m
 //  ZKRefresh
 //
-//  Created by doggy on 11/13/16.
-//  Copyright © 2016 doggy. All rights reserved.
+//  Created by doug on 3/20/17.
+//  Copyright © 2017 doug. All rights reserved.
 //
 
-#import "ZKRefreshBaseHeader.h"
 #import "UIScrollView+ZKRefreshPrivate.h"
 #import "UIView+ZKRefreshPrivate.h"
 #import "ZKRefreshBase_private.h"
-#import "ZKRefreshBaseFooter.h"
+#import "ZKRefreshBaseEarlierLoader.h"
 
-static const CGFloat MJRefreshFooterHeight = 44.0;
+static const CGFloat MJRefreshHeaderHeight = 44.0;
 
-@interface ZKRefreshBaseFooter()
+@interface ZKRefreshBaseEarlierLoader ()
 
 @end
 
-@implementation ZKRefreshBaseFooter
+@implementation ZKRefreshBaseEarlierLoader
 
 #pragma mark - NS_DESIGNATED_INITIALIZER
-+ (instancetype)footerWithRefreshingBlock:(ZKRefreshBaseRefreshingBlock)refreshingBlock
++ (instancetype)headerWithRefreshingBlock:(ZKRefreshBaseRefreshingBlock)refreshingBlock
 {
-    ZKRefreshBaseFooter *cmp = [[self alloc] init];
+    ZKRefreshBaseEarlierLoader *cmp = [[self alloc] init];
     cmp.refreshingBlock = refreshingBlock;
     return cmp;
 }
@@ -34,11 +33,18 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
     [super prepare];
     
     // This header view's height
-    self.zk_height = MJRefreshFooterHeight;
+    self.zk_height = MJRefreshHeaderHeight;
     
     // Default values
-    self.automaticallyHidden = NO;
     self.triggerAutomaticallyRefreshPercent = .0f;
+}
+
+-(void)layoutSubviews
+{
+    // Put itself to the top of contentView
+    self.zk_y = - self.zk_height - self.ignoredScrollViewContentInsetTop;
+    
+    [super layoutSubviews];
 }
 
 - (void)willMoveToSuperview:(__kindof UIScrollView *)newSuperview
@@ -49,19 +55,21 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
     
     // Must be added to UIScrollView
     if ([newSuperview isKindOfClass:UIScrollView.class]) {
-        // Extend contentInsetBottom for adding this footer
+        // Extend contentInsetTop for adding this header
         if (self.hidden == NO) {
-            self.scrollView.zk_insetBottom += self.zk_height;
+            self.scrollView.zk_insetTop += self.zk_height;
+            
+            // re-alignment contentView's position
+            CGPoint contentOffset = self.scrollView.contentOffset;
+            contentOffset.y -= self.zk_height;
+            [self.scrollView setContentOffset:contentOffset animated:NO];
         }
-        
-        // Put itself to the bottom of contentView
-        self.zk_y = self.scrollView.zk_contentHeight;
         
         [self addObservers];
     } else {
-        // Shrink contentInsetBottom for removing this footer
+        // Shrink contentInsetTop for removing this header
         if (self.hidden == NO) {
-            self.scrollView.zk_insetBottom -= self.zk_height;
+            self.scrollView.zk_insetTop -= self.zk_height;
         }
     }
 }
@@ -89,7 +97,7 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
         [self scrollViewContentSizeDidChange:change];
     }
     
-    if (self.hidden) return;
+    if (self.hidden || self.ignoreRefresh) return;
     
     // KVO `contentOffset` handler
     if ([keyPath isEqualToString:ZKRefreshKeyPathContentOffset]) {
@@ -99,9 +107,6 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
 
 - (void)scrollViewContentSizeDidChange:(NSDictionary *)change
 {
-    // Put itself to the bottom of contentView
-    self.zk_y = self.scrollView.zk_contentHeight;
-    
     if (self.automaticallyHidden) {
         self.hidden = (0 == self.zk_totalDataCount);
     }
@@ -110,33 +115,20 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change
 {
     if (ZKRefreshStateIdle == self.state) {
-        BOOL beginRefreshing = NO;
+        CGFloat triggerDistanceToContentTop = - (  self.scrollView.zk_insetTop
+                                                 - self.zk_height
+                                                 + self.triggerAutomaticallyRefreshPercent * self.scrollView.zk_height);
+        CGFloat triggerOffsetY = self.scrollView.zk_offsetY;
         
-        // contentHeight less than one page/screen
-        if (self.scrollView.zk_insetTop + self.scrollView.zk_contentHeight <= self.scrollView.zk_height) {
-            // Scenario 1: FooterRefresh is not allowed while zk_header is showing
-            
-            // offsetY value to show zk_header
-            CGFloat happenOffsetY = - self.scrollView.zk_insetTop;
-            
-            // This zk_header is not showing
-            if (happenOffsetY < self.scrollView.zk_offsetY) {
-                // Scenario 2: FooterRefresh is not allowed during an existing zk_header refreshing
-                beginRefreshing = ! self.scrollView.zk_header.isRefreshing;
-            }
-        } else {
-            CGFloat actualContentHeight = self.scrollView.zk_contentHeight + self.scrollView.zk_insetBottom - self.zk_height;
-            CGFloat triggerOffsetY = self.scrollView.zk_offsetY + self.scrollView.zk_height;
-            CGFloat triggerDistanceToContentBottom = self.triggerAutomaticallyRefreshPercent * self.scrollView.zk_contentHeight;
-            if (actualContentHeight - triggerDistanceToContentBottom <= triggerOffsetY) {
-                beginRefreshing = YES;
-            }
-        }
-        if (beginRefreshing) {
+        NSLog(@"doug 2 %f" , triggerOffsetY);
+        
+        if (triggerOffsetY < triggerDistanceToContentTop) {
             // Just a performance improvement
             CGPoint old = [change[@"old"] CGPointValue];
             CGPoint new = [change[@"new"] CGPointValue];
-            if (new.y <= old.y) return;
+            if (old.y <= new.y) return;
+            
+            NSLog(@"doug beginRefreshing");
             
             // Rolling out !!
             [self beginRefreshing];
@@ -168,14 +160,11 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
     if (hidden) {
         self.state = ZKRefreshStateIdle;
         
-        // Hide footer: Shrink contentInsetBottom
-        self.scrollView.zk_insetBottom -= self.zk_height;
+        // Hide header: Shrink contentInsetTop
+        self.scrollView.zk_insetTop -= self.zk_height;
     } else {
-        // Show footer: Extend contentInsetBottom
-        self.scrollView.zk_insetBottom += self.zk_height;
-        
-        // Put itself to the bottom of contentView
-        self.zk_y = self.scrollView.zk_contentHeight;
+        // Show header: Extend contentInsetTop
+        self.scrollView.zk_insetTop += self.zk_height;
     }
 }
 
@@ -208,6 +197,15 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
 
 - (void)resetNoMoreData
 {
+    self.state = ZKRefreshStateIdle;
+}
+
+- (void)endRefreshingWithHeightIncrease:(CGFloat)heightIncrease
+{
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.y += heightIncrease;
+    [self.scrollView setContentOffset:offset animated:NO];
+    
     self.state = ZKRefreshStateIdle;
 }
 

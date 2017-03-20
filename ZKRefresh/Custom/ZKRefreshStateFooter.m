@@ -6,6 +6,7 @@
 //  Copyright © 2016 doggy. All rights reserved.
 //
 
+#import "ZKRefreshBase_private.h"
 #import "ZKRefreshStateFooter.h"
 
 @interface ZKRefreshStateFooter()

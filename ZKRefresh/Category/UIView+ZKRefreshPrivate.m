@@ -1,5 +1,5 @@
 //
-//  UIView+Extension.m
+//  UIView+ZKRefreshPrivate.m
 //  ZKRefresh
 //
 //  Created by doggy on 11/13/16.

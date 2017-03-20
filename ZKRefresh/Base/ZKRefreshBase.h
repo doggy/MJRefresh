@@ -21,19 +21,29 @@ typedef NS_ENUM(NSInteger, ZKRefreshState) {
     ZKRefreshStateNoMoreData,   // Only used in footer
 };
 
-@interface ZKRefreshBase : UIView
-{
-    // parent view
-    __weak UIScrollView *_scrollView;
-}
-@property (weak, nonatomic, readonly) __kindof UIScrollView *scrollView;
+typedef void (^ZKRefreshBaseRefreshingBlock)();
+
+@protocol ZKRefreshProtocol <NSObject>
+
+// Footer/Header:
+- (void)beginRefreshing;
+- (void)endRefreshing;
+- (BOOL)isRefreshing;
+
+@optional
+// Footer Only:
+
+// State: Idle
+- (void)resetNoMoreData;
+- (void)endRefreshingWithHeightIncrease:(CGFloat)heightIncrease;
+// State: NoMoreData
+- (void)endRefreshingWithNoMoreData;
+@end
+
+@interface ZKRefreshBase : UIView <ZKRefreshProtocol>
 
 // main status
-@property (assign, nonatomic) ZKRefreshState state;
-
-// refreshing callback
-typedef void (^ZKRefreshBaseRefreshingBlock)();
-@property (strong, nonatomic) ZKRefreshBaseRefreshingBlock refreshingBlock;
+@property (nonatomic, assign) ZKRefreshState state;
 
 #pragma mark Public method
 - (void)beginRefreshing;

@@ -8,11 +8,12 @@
 
 #import "UIScrollView+ZKRefreshPrivate.h"
 #import "UIView+ZKRefreshPrivate.h"
+#import "ZKRefreshBase_private.h"
 #import "ZKRefreshBaseHeader.h"
 
-const CGFloat MJRefreshHeaderHeight = 54.0;
-const CGFloat MJRefreshFastAnimationDuration = 0.25;
-const CGFloat MJRefreshSlowAnimationDuration = 0.4;
+static const CGFloat MJRefreshHeaderHeight = 54.0;
+static const CGFloat MJRefreshFastAnimationDuration = 0.25;
+static const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 
 @interface ZKRefreshBaseHeader()
 

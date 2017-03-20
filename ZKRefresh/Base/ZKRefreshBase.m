@@ -15,7 +15,10 @@ NSString *const ZKRefreshKeyPathContentSize = @"contentSize";
 
 
 @interface ZKRefreshBase()
-@property (weak,   nonatomic, readwrite) __kindof UIScrollView *scrollView;
+@property (nonatomic, weak) __kindof UIScrollView *scrollView;
+
+// refreshing callback
+@property (nonatomic, strong) ZKRefreshBaseRefreshingBlock refreshingBlock;
 
 @end
 
