@@ -127,7 +127,7 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
         } else {
             CGFloat actualContentHeight = self.scrollView.zk_contentHeight + self.scrollView.zk_insetBottom - self.zk_height;
             CGFloat triggerOffsetY = self.scrollView.zk_offsetY + self.scrollView.zk_height;
-            CGFloat triggerDistanceToContentBottom = self.triggerAutomaticallyRefreshPercent * self.scrollView.zk_contentHeight;
+            CGFloat triggerDistanceToContentBottom = self.triggerAutomaticallyRefreshPercent * self.scrollView.zk_height;
             if (actualContentHeight - triggerDistanceToContentBottom <= triggerOffsetY) {
                 beginRefreshing = YES;
             }
