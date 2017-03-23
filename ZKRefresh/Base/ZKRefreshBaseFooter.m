@@ -89,7 +89,7 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
         [self scrollViewContentSizeDidChange:change];
     }
     
-    if (self.hidden) return;
+    if (self.hidden || self.ignoreRefresh) return;
     
     // KVO `contentOffset` handler
     if ([keyPath isEqualToString:ZKRefreshKeyPathContentOffset]) {

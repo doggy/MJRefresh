@@ -88,7 +88,7 @@ static const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 {
     if (!self.userInteractionEnabled) return;
     
-    if (self.hidden) return;
+    if (self.hidden || self.ignoreRefresh) return;
     
     // KVO `contentOffset` handler
     if ([keyPath isEqualToString:ZKRefreshKeyPathContentOffset]) {

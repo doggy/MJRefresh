@@ -45,6 +45,8 @@ typedef void (^ZKRefreshBaseRefreshingBlock)();
 // main status
 @property (nonatomic, assign) ZKRefreshState state;
 
+@property (assign, nonatomic) BOOL ignoreRefresh;
+
 #pragma mark Public method
 - (void)beginRefreshing;
 - (void)endRefreshing;

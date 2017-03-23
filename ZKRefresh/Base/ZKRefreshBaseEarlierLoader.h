@@ -18,7 +18,6 @@
 // State: Idle
 - (void)resetNoMoreData;
 
-@property (assign, nonatomic) BOOL ignoreRefresh;
 - (void)endRefreshingWithHeightIncrease:(CGFloat)heightIncrease;
 
 // A gap value between zk_header and scrollView's content. Default is 0
