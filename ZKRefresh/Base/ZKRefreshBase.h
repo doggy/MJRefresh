@@ -26,6 +26,8 @@ typedef void (^ZKRefreshBaseRefreshingBlock)();
 @protocol ZKRefreshProtocol <NSObject>
 
 // Footer/Header:
+// main status
+@property (nonatomic, assign) ZKRefreshState state;
 - (void)beginRefreshing;
 - (void)endRefreshing;
 - (BOOL)isRefreshing;
@@ -42,7 +44,6 @@ typedef void (^ZKRefreshBaseRefreshingBlock)();
 
 @interface ZKRefreshBase : UIView <ZKRefreshProtocol>
 
-// main status
 @property (nonatomic, assign) ZKRefreshState state;
 
 @property (assign, nonatomic) BOOL ignoreRefresh;
