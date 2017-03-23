@@ -122,7 +122,9 @@ static const CGFloat MJRefreshFooterHeight = 44.0;
             // This zk_header is not showing
             if (happenOffsetY < self.scrollView.zk_offsetY) {
                 // Scenario 2: FooterRefresh is not allowed during an existing zk_header refreshing
-                beginRefreshing = ! self.scrollView.zk_header.isRefreshing;
+                beginRefreshing = ! (   self.scrollView.zk_header.isRefreshing
+                                     || self.scrollView.zk_header.state == ZKRefreshStateWillIdle
+                                     );
             }
         } else {
             CGFloat actualContentHeight = self.scrollView.zk_contentHeight + self.scrollView.zk_insetBottom - self.zk_height;
