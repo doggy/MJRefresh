@@ -101,7 +101,7 @@ static const CGFloat MJRefreshSlowAnimationDuration = 0.4;
     if (   self.state != ZKRefreshStateRefreshing
         && self.state != ZKRefreshStateWillIdle ) {
         // Mind to updating contentInsetTop
-        self.originalInsetTop = self.scrollView.contentInset.top;
+        self.originalInsetTop = self.scrollView.zk_insetTop;
     }
     
     CGFloat contentOffset = self.scrollView.zk_offsetY;
@@ -151,6 +151,14 @@ static const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 }
 
 #pragma mark - State Handler
+
+- (void)endRefreshing
+{
+    // Skip if state is ZKRefreshStateWillIdle
+    if (ZKRefreshStateWillIdle != self.state) {
+        self.state = ZKRefreshStateIdle;
+    }
+}
 
 - (void)setState:(ZKRefreshState)state
 {
