@@ -22,6 +22,8 @@
 		5810CBD51DE0A62A00F255DE /* ZKRefreshStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBCD1DE0A62A00F255DE /* ZKRefreshStateFooter.m */; };
 		5810CBDB1DE0A63A00F255DE /* MJExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBD81DE0A63A00F255DE /* MJExample.m */; };
 		5810CBDC1DE0A63A00F255DE /* MJExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5810CBDA1DE0A63A00F255DE /* MJExampleViewController.m */; };
+		58A2FF2E1E804ACB0008B80A /* ZKRefreshBaseEarlierLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A2FF2D1E804ACB0008B80A /* ZKRefreshBaseEarlierLoader.m */; };
+		58A2FF311E804AD90008B80A /* ZKRefreshStateEarlierLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A2FF301E804AD90008B80A /* ZKRefreshStateEarlierLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,11 @@
 		5810CBD81DE0A63A00F255DE /* MJExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExample.m; sourceTree = "<group>"; };
 		5810CBD91DE0A63A00F255DE /* MJExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExampleViewController.h; sourceTree = "<group>"; };
 		5810CBDA1DE0A63A00F255DE /* MJExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExampleViewController.m; sourceTree = "<group>"; };
+		58A2FF2B1E804ACB0008B80A /* ZKRefreshBase_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRefreshBase_private.h; sourceTree = "<group>"; };
+		58A2FF2C1E804ACB0008B80A /* ZKRefreshBaseEarlierLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRefreshBaseEarlierLoader.h; sourceTree = "<group>"; };
+		58A2FF2D1E804ACB0008B80A /* ZKRefreshBaseEarlierLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshBaseEarlierLoader.m; sourceTree = "<group>"; };
+		58A2FF2F1E804AD90008B80A /* ZKRefreshStateEarlierLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRefreshStateEarlierLoader.h; sourceTree = "<group>"; };
+		58A2FF301E804AD90008B80A /* ZKRefreshStateEarlierLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshStateEarlierLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +185,9 @@
 			children = (
 				5810CBBE1DE0A62A00F255DE /* ZKRefreshBase.h */,
 				5810CBBF1DE0A62A00F255DE /* ZKRefreshBase.m */,
+				58A2FF2B1E804ACB0008B80A /* ZKRefreshBase_private.h */,
+				58A2FF2C1E804ACB0008B80A /* ZKRefreshBaseEarlierLoader.h */,
+				58A2FF2D1E804ACB0008B80A /* ZKRefreshBaseEarlierLoader.m */,
 				5810CBC21DE0A62A00F255DE /* ZKRefreshBaseHeader.h */,
 				5810CBC31DE0A62A00F255DE /* ZKRefreshBaseHeader.m */,
 				5810CBC01DE0A62A00F255DE /* ZKRefreshBaseFooter.h */,
@@ -202,6 +212,8 @@
 		5810CBCB1DE0A62A00F255DE /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				58A2FF2F1E804AD90008B80A /* ZKRefreshStateEarlierLoader.h */,
+				58A2FF301E804AD90008B80A /* ZKRefreshStateEarlierLoader.m */,
 				5810CBCC1DE0A62A00F255DE /* ZKRefreshStateFooter.h */,
 				5810CBCD1DE0A62A00F255DE /* ZKRefreshStateFooter.m */,
 			);
@@ -352,10 +364,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5810CBD21DE0A62A00F255DE /* UIScrollView+ZKRefresh.m in Sources */,
+				58A2FF311E804AD90008B80A /* ZKRefreshStateEarlierLoader.m in Sources */,
 				5810CBD11DE0A62A00F255DE /* ZKRefreshBaseHeader.m in Sources */,
 				5810CB8E1DE0A58700F255DE /* AppDelegate.m in Sources */,
 				5810CB8B1DE0A58700F255DE /* main.m in Sources */,
 				5810CBD31DE0A62A00F255DE /* UIScrollView+ZKRefreshPrivate.m in Sources */,
+				58A2FF2E1E804ACB0008B80A /* ZKRefreshBaseEarlierLoader.m in Sources */,
 				5810CBD01DE0A62A00F255DE /* ZKRefreshBaseFooter.m in Sources */,
 				5810CBD51DE0A62A00F255DE /* ZKRefreshStateFooter.m in Sources */,
 				5810CBCF1DE0A62A00F255DE /* ZKRefreshBase.m in Sources */,

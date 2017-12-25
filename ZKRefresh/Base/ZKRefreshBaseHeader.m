@@ -2,17 +2,18 @@
 //  ZKRefreshBaseHeader.m
 //  ZKRefresh
 //
-//  Created by doggy on 11/13/16.
-//  Copyright © 2016 doggy. All rights reserved.
+//  Created by doug on 11/13/16.
+//  Copyright © 2016 doug. All rights reserved.
 //
 
 #import "UIScrollView+ZKRefreshPrivate.h"
 #import "UIView+ZKRefreshPrivate.h"
+#import "ZKRefreshBase_private.h"
 #import "ZKRefreshBaseHeader.h"
 
-const CGFloat MJRefreshHeaderHeight = 54.0;
-const CGFloat MJRefreshFastAnimationDuration = 0.25;
-const CGFloat MJRefreshSlowAnimationDuration = 0.4;
+static const CGFloat MJRefreshHeaderHeight = 54.0;
+static const CGFloat MJRefreshFastAnimationDuration = 0.25;
+static const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 
 @interface ZKRefreshBaseHeader()
 
@@ -87,7 +88,7 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 {
     if (!self.userInteractionEnabled) return;
     
-    if (self.hidden) return;
+    if (self.hidden || self.ignoreRefresh) return;
     
     // KVO `contentOffset` handler
     if ([keyPath isEqualToString:ZKRefreshKeyPathContentOffset]) {
@@ -100,7 +101,7 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
     if (   self.state != ZKRefreshStateRefreshing
         && self.state != ZKRefreshStateWillIdle ) {
         // Mind to updating contentInsetTop
-        self.originalInsetTop = self.scrollView.contentInset.top;
+        self.originalInsetTop = self.scrollView.zk_insetTop;
     }
     
     CGFloat contentOffset = self.scrollView.zk_offsetY;
@@ -150,6 +151,14 @@ const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 }
 
 #pragma mark - State Handler
+
+- (void)endRefreshing
+{
+    // Skip if state is ZKRefreshStateWillIdle
+    if (ZKRefreshStateWillIdle != self.state) {
+        self.state = ZKRefreshStateIdle;
+    }
+}
 
 - (void)setState:(ZKRefreshState)state
 {

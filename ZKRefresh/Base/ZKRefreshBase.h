@@ -2,8 +2,8 @@
 //  ZKRefreshBase.h
 //  ZKRefresh
 //
-//  Created by doggy on 11/13/16.
-//  Copyright © 2016 doggy. All rights reserved.
+//  Created by doug on 11/13/16.
+//  Copyright © 2016 doug. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -21,19 +21,32 @@ typedef NS_ENUM(NSInteger, ZKRefreshState) {
     ZKRefreshStateNoMoreData,   // Only used in footer
 };
 
-@interface ZKRefreshBase : UIView
-{
-    // parent view
-    __weak UIScrollView *_scrollView;
-}
-@property (weak, nonatomic, readonly) __kindof UIScrollView *scrollView;
-
-// main status
-@property (assign, nonatomic) ZKRefreshState state;
-
-// refreshing callback
 typedef void (^ZKRefreshBaseRefreshingBlock)();
-@property (strong, nonatomic) ZKRefreshBaseRefreshingBlock refreshingBlock;
+
+@protocol ZKRefreshProtocol <NSObject>
+
+// Footer/Header:
+// main status
+@property (nonatomic, assign) ZKRefreshState state;
+- (void)beginRefreshing;
+- (void)endRefreshing;
+- (BOOL)isRefreshing;
+
+@optional
+// Footer Only:
+
+// State: Idle
+- (void)resetNoMoreData;
+- (void)endRefreshingWithHeightIncrease:(CGFloat)heightIncrease;
+// State: NoMoreData
+- (void)endRefreshingWithNoMoreData;
+@end
+
+@interface ZKRefreshBase : UIView <ZKRefreshProtocol>
+
+@property (nonatomic, assign) ZKRefreshState state;
+
+@property (assign, nonatomic) BOOL ignoreRefresh;
 
 #pragma mark Public method
 - (void)beginRefreshing;

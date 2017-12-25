@@ -2,8 +2,8 @@
 //  ZKRefreshBase.m
 //  ZKRefresh
 //
-//  Created by doggy on 11/13/16.
-//  Copyright © 2016 doggy. All rights reserved.
+//  Created by doug on 11/13/16.
+//  Copyright © 2016 doug. All rights reserved.
 //
 
 #import "UIScrollView+ZKRefreshPrivate.h"
@@ -15,7 +15,10 @@ NSString *const ZKRefreshKeyPathContentSize = @"contentSize";
 
 
 @interface ZKRefreshBase()
-@property (weak,   nonatomic, readwrite) __kindof UIScrollView *scrollView;
+@property (nonatomic, weak) __kindof UIScrollView *scrollView;
+
+// refreshing callback
+@property (nonatomic, strong) ZKRefreshBaseRefreshingBlock refreshingBlock;
 
 @end
 
@@ -92,8 +95,7 @@ NSString *const ZKRefreshKeyPathContentSize = @"contentSize";
 {
     return (   self.state == ZKRefreshStateRefreshing
             || self.state == ZKRefreshStateWillRefresh
-            // just a quick fix, for preventing state error bug when calling `endRefreshing` twice quickly
-//            || self.state == ZKRefreshStateWillIdle
+            || self.state == ZKRefreshStateWillIdle
             );
 }
 
