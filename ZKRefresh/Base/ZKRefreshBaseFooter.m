@@ -128,7 +128,13 @@ const CGFloat MJRefreshFooterHeight = 44.0;
             CGFloat triggerOffsetY = self.scrollView.zk_offsetY + self.scrollView.zk_height;
             CGFloat triggerDistanceToContentBottom = self.triggerAutomaticallyRefreshPercent * self.scrollView.zk_contentHeight;
             if (actualContentHeight - triggerDistanceToContentBottom <= triggerOffsetY) {
-                beginRefreshing = YES;
+                // offsetY value to show zk_header
+                CGFloat happenOffsetY = - self.scrollView.zk_insetTop;
+                
+                // This zk_header is not showing
+                if (happenOffsetY < self.scrollView.zk_offsetY) {
+                    beginRefreshing = YES;
+                }
             }
         }
         if (beginRefreshing) {
